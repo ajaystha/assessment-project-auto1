@@ -1,0 +1,10 @@
+@import '../../assets/scss/_variables';
+@import '../../assets/scss/_mixins';
+
+.Footer {
+  @include toolbars;
+  justify-content: center;
+  border-top: 1px solid $light-gray;
+  position: absolute;
+  bottom: 0;
+}

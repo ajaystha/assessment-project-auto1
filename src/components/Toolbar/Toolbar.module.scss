@@ -1,0 +1,12 @@
+@import '../../assets/scss/_variables';
+@import '../../assets/scss/_mixins';
+
+.Header {
+  @include toolbars;
+  justify-content: space-between;
+  border-bottom: 1px solid $light-gray;
+
+  nav {
+    height: 100%;
+  }
+}

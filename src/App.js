@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
+import Layout from './components/Layout/Layout';
+import DisplayCars from './containers/DisplayCars/DisplayCars';
+
 class App extends Component {
   render() {
     return (
       <div>
-        <h1>This is App.js</h1>
+        <Layout>
+          <DisplayCars></DisplayCars>
+        </Layout>
       </div>
     );
   }
 }
-
 export default App;

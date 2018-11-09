@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import classes from './DisplayCars.module.scss';
 import CarFilters from '../../components/Controls/CarFilters/CarFilters';
-// import CarFilter from '../../components/Controls/CarFilters/CarFilter/CarFilter';
-
 
 
 class DisplayCars extends Component {
@@ -60,4 +59,17 @@ class DisplayCars extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    colors: state.colors,
+  };
+};
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     abc
+//   };
+// };
+
 export default DisplayCars;

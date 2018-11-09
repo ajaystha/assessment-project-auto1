@@ -6,7 +6,49 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+// code {
+//   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+//     monospace;
+// }
+
+
+// Typography
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+
+
+// Select
+.select {
+  border-color: $light-gray;
+  padding: 8px;
+  background-color: white;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+
+// Buttons
+.button {
+  width: 128px;
+  height: 32px;
+  background-color: $orange;
+  color: white;
+  font-size: 14px;
+  // font-weight:
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: $dark-orange;
+  }
 }

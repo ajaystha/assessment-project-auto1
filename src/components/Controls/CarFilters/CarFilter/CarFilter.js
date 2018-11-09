@@ -7,12 +7,17 @@ const carFilter = (props) => (
   <div className={classes.CarFilter}>
     <label className="label">{props.label}</label>
 
-    <select className="select">
-      <option defaultValue>
-        {props.label === 'Color' ? 'All car colors' : 'All manufacturers'}
-      </option>
-      {props.options.map((x, y) => <option key={y}>{x}</option>)}
-    </select>
+    <div className="select">
+      <select>
+
+        <option defaultValue>
+          {props.label === 'Color' ? 'All car colors' : 'All manufacturers'}
+        </option>
+
+        {props.options.map((x, y) => <option key={y}>{x}</option>)}
+
+      </select>
+    </div>
 
   </div>
 );

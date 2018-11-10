@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
 import './assets/scss/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import thunk from 'redux-thunk';
 import reducer from './store/reducer';
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer,
+  applyMiddleware(thunk)
+);
 
 
 const app = (

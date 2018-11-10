@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import { connect } from 'react-redux';
+import { fetchCars, fetchColors, fetchManufacturers } from '../../store/actions/';
 
 import classes from './MainView.module.scss';
 import CarFilters from '../../components/Controls/CarFilters/CarFilters';
@@ -8,37 +9,11 @@ import CarListView from '../../components/CarListView/CarListView';
 
 
 class MainView extends Component {
-  state = {
-    colors: [],
-    brands: [],
-    manufacturers: []
-  }
-
 
   componentDidMount() {
-    // Get colors
-    axios.get('/colors')
-      .then(response => {
-        this.setState({ colors: response.data.colors });
-      })
-      .catch(err => {
-        console.log(err);
-      })
-
-
-    // Get manufacturers
-    axios.get('/manufacturers')
-      .then(response => {
-        this.setState({ manufacturers: response.data.manufacturers });
-        return response.data.manufacturers;
-      })
-      .then(response => {
-        const brands = response.map(item => item.name);
-        this.setState({ brands: brands });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.props.fetchCars();
+    this.props.fetchColors();
+    this.props.fetchManufacturers();
   }
 
 
@@ -47,15 +22,16 @@ class MainView extends Component {
       <div className={classes.MainView}>
         <div className={classes.Filters}>
           <CarFilters
-            colors={this.state.colors}
-            brands={this.state.brands}
+            colors={this.props.colors}
+            brands={this.props.manufacturers}
           />
         </div>
 
 
         <div className={classes.CarList}>
-          {/* Right - Car List */}
-          <CarListView />
+          <CarListView
+            cars={this.props.cars}
+            totalPageCount={this.props.totalPageCount} />
         </div>
       </div>
     );
@@ -64,14 +40,27 @@ class MainView extends Component {
 
 const mapStateToProps = state => {
   return {
+    totalPageCount: state.totalPageCount,
+    cars: state.cars,
     colors: state.colors,
+    manufacturers: state.manufacturers,
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     abc
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchCars: function() {
+      dispatch(fetchCars());
+    },
+    fetchColors: function() {
+      dispatch(fetchColors());
+    },
+    fetchManufacturers: function() {
+      dispatch(fetchManufacturers());
+    },
+  };
+};
 
-export default MainView;
+const connectedMainView = connect(mapStateToProps, mapDispatchToProps)(MainView)
+
+export default connectedMainView;

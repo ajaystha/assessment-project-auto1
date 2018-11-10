@@ -7,7 +7,7 @@ import Pagination from '../Pagination/Pagination';
 import classes from './CarListView.module.scss';
 
 
-const carListView = () => (
+const carListView = (props) => (
   <>
     <div className={classes.Header}>
       <div>
@@ -17,9 +17,9 @@ const carListView = () => (
       <CarSort />
     </div>
 
-    <CarList />
+    <CarList cars={props.cars} />
 
-    <Pagination />
+    <Pagination totalPageCount={props.totalPageCount} />
   </>
 );
 export default carListView;

@@ -15,13 +15,7 @@ const carSort = (props) => (
 
     <div className="select">
       <select>
-
-        {sorts.map((x, y) => {
-          console.log(x);
-
-          return <option key={y}>{x}</option>}
-        )}
-
+        { sorts.map((item, index) => <option key={index}>{item}</option>) }
       </select>
     </div>
 

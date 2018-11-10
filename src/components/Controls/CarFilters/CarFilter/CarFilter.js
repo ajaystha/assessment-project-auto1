@@ -11,10 +11,10 @@ const carFilter = (props) => (
       <select>
 
         <option defaultValue>
-          {props.label === 'Color' ? 'All car colors' : 'All manufacturers'}
+          { props.label === 'Color' ? 'All car colors' : 'All manufacturers' }
         </option>
 
-        {props.options.map((x, y) => <option key={y}>{x}</option>)}
+        { props.options.map((item, index) => <option key={index}>{item}</option>) }
 
       </select>
     </div>

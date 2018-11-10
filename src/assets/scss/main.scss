@@ -16,6 +16,13 @@ body {
 }
 
 
+.upperCase {
+  text-transform: uppercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+
 /*** Typography ***/
 .title {
   font-size: 32px;

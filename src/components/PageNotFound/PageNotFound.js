@@ -14,7 +14,7 @@ const pageNotFound = () => (
 
     <p>Sorry, the page you are looking for does not exist.</p>
     <p>
-      You can always go back to the <Link to="/" className="links">homepage</Link>.
+      You can always go back to the <Link to="/" className="link">homepage</Link>.
       </p>
   </div>
 );

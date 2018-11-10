@@ -6,11 +6,11 @@ import Router from './router/router';
 class App extends Component {
   render() {
     return (
-      <div>
+      <>
         <Layout>
           <Router />
         </Layout>
-      </div>
+      </>
     );
   }
 }

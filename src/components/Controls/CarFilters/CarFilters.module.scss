@@ -5,4 +5,8 @@
   display: flex;
   flex-flow: column;
   box-sizing: border-box;
+
+  button {
+    align-self: flex-end;
+  }
 }

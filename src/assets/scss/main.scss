@@ -10,6 +10,12 @@ body {
 }
 
 
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+
 /*** Typography ***/
 .title {
   font-size: 32px;
@@ -43,7 +49,7 @@ body {
 
 
 /*** Links ***/
-.links {
+.link {
   text-decoration: none;
   color: $orange;
 

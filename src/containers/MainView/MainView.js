@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import classes from './DisplayCars.module.scss';
+import classes from './MainView.module.scss';
 import CarFilters from '../../components/Controls/CarFilters/CarFilters';
 
 
-class DisplayCars extends Component {
+class MainView extends Component {
   state = {
     colors: [],
     brands: [],
@@ -43,7 +43,7 @@ class DisplayCars extends Component {
 
   render() {
     return (
-      <div className={classes.DisplayCars}>
+      <div className={classes.MainView}>
         <div className={classes.Filters}>
           <CarFilters
             colors={this.state.colors}
@@ -72,4 +72,4 @@ const mapStateToProps = state => {
 //   };
 // };
 
-export default DisplayCars;
+export default MainView;

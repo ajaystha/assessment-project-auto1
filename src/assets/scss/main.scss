@@ -4,17 +4,13 @@ body {
   font-family: $font;
   font-size: 14px;
   font-weight: 400;
+  color: $dark-gray;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-// code {
-//   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-//     monospace;
-// }
 
-
-// Typography
+/*** Typography ***/
 .title {
   font-size: 32px;
   font-weight: bold;
@@ -27,44 +23,7 @@ body {
 }
 
 
-// Select
-.select {
-  position: relative;
-  border: 1px solid $light-gray;
-  background-color: white;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 0;
-    height: 0;
-    right: 10px;
-    bottom: 0;
-    margin: auto;
-    border-style: solid;
-    border-width: 8px 6px 0 6px;
-    border-color: $light-gray transparent transparent transparent;
-    pointer-events: none;
-  }
-
-  select {
-    font-size: 14px;
-    font-weight: 100;
-    padding: 8px;
-    border: none;
-    background: transparent;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    padding-left: 10px;
-    appearance: none;
-    text-transform: capitalize;
-  }
-}
-
-
-// Buttons
+/*** Buttons ***/
 .button {
   width: 128px;
   height: 32px;
@@ -79,5 +38,16 @@ body {
   &:hover,
   &:active {
     background-color: $dark-orange;
+  }
+}
+
+
+/*** Links ***/
+.links {
+  text-decoration: none;
+  color: $orange;
+
+  &:hover {
+    text-decoration: underline;
   }
 }

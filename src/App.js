@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 import Layout from './components/Layout/Layout';
-import DisplayCars from './containers/DisplayCars/DisplayCars';
+import Router from './router/router';
 
 class App extends Component {
   render() {
     return (
       <div>
         <Layout>
-          <DisplayCars></DisplayCars>
+          <Router />
         </Layout>
       </div>
     );

@@ -1,0 +1,40 @@
+.panel {
+  border: 1px solid $light-gray;
+  padding: 12px;
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  box-sizing: border-box;
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  .thumbnail {
+    margin-right: 24px;
+    height: 80px;
+    width: 120px;
+    overflow: hidden;
+    background-color: $light-gray;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .info {
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .link {
+    font-size: 12px;
+  }
+}

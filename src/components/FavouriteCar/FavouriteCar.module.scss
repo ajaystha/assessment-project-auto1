@@ -1,0 +1,25 @@
+@import '../../assets/scss/_variables';
+
+.FavouriteCar {
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid $light-gray;
+    padding: 24px;
+
+    p {
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .btn {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+
+
+
+.ClearFix {
+  clear: both;
+}

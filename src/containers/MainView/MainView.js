@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import classes from './MainView.module.scss';
 import CarFilters from '../../components/Controls/CarFilters/CarFilters';
+import CarListView from '../../components/CarListView/CarListView';
 
 
 class MainView extends Component {
@@ -53,7 +54,8 @@ class MainView extends Component {
 
 
         <div className={classes.CarList}>
-          Right - Car List
+          {/* Right - Car List */}
+          <CarListView />
         </div>
       </div>
     );

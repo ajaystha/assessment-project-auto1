@@ -10,12 +10,14 @@
   box-sizing: border-box;
 
   .CarList {
-    width: 800px;
+    // width: 800px;
+    flex: 1;
   }
 }
 
 .Filters {
-  width: 550px;
+  width: 500px;
+  max-width: 500px;
   padding: 24px;
   border: 1px solid $light-gray;
   margin-right: 24px;

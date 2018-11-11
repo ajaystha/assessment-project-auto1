@@ -1,11 +1,6 @@
-.ContentWrapper {
-  display: flex;
-  width: 800px;
-  margin: 0 auto;
-  padding: 24px;
-
-  .Description {
+.CarDetails {
     flex: 1;
+    margin-right: 24px;
 
     .Title {
       font-size: 32px;
@@ -24,4 +19,3 @@
       line-height: 1.5;
     }
   }
-}

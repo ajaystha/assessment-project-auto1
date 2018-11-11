@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const carList = (props) => (
@@ -21,7 +22,8 @@ const carList = (props) => (
         <span className="capitalize">{props.car.color}</span>
       </p>
 
-      <a href="/" className="link">View Details</a>
+      <Link to={`/cars/${props.car.stockNumber}`}
+        className="link">View Details</Link>
     </div>
   </div>
 );

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import classes from './CarDetailView.module.scss';
 import CarDetails from './CarDetails/CarDetails';
-import FavouriteCar from './FavouriteCar/FavouriteCar';
+import FavoriteCar from './FavoriteCar/FavoriteCar';
 import PageNotFound from '../PageNotFound/PageNotFound';
 
 
@@ -57,7 +57,7 @@ class CarDetailView extends Component {
             <CarDetails car={this.state.car} />
 
             <div>
-              <FavouriteCar />
+              <FavoriteCar carId={this.state.car.stockNumber} />
             </div>
           </div>
         </>

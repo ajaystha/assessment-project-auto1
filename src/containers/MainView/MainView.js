@@ -97,29 +97,24 @@ class MainView extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  cars: state.cars,
+  colors: state.colors,
+  manufacturers: state.manufacturers,
+  totalPageCount: state.totalPageCount,
+});
 
-const mapStateToProps = state => {
-  return {
-    cars: state.cars,
-    colors: state.colors,
-    manufacturers: state.manufacturers,
-    totalPageCount: state.totalPageCount,
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchCars: function(filters) {
-      dispatch(fetchCars(filters));
-    },
-    fetchColors: function() {
-      dispatch(fetchColors());
-    },
-    fetchManufacturers: function() {
-      dispatch(fetchManufacturers());
-    },
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  fetchCars: function(filters) {
+    dispatch(fetchCars(filters));
+  },
+  fetchColors: function() {
+    dispatch(fetchColors());
+  },
+  fetchManufacturers: function() {
+    dispatch(fetchManufacturers());
+  },
+});
 
 const connectedMainView = connect(mapStateToProps, mapDispatchToProps)(MainView)
 

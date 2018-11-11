@@ -25,7 +25,6 @@ class CarDetailView extends Component {
         this.setState({ car: response.data.car });
       })
       .catch(err => {
-        this.setState({ error: err.response })
         if (err.response.status === 404) {
           this.setState({ notFound: true });
         }

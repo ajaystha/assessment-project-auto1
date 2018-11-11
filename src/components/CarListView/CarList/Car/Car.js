@@ -9,7 +9,7 @@ const carList = (props) => (
       <img src={props.car.pictureUrl} alt={props.car.modelName} />
     </div>
 
-    <div>
+    <div className="details">
       <div className="title">
         {props.car.manufacturerName} {props.car.modelName}
       </div>

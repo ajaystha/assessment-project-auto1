@@ -2,18 +2,16 @@
   border: 1px solid $light-gray;
   padding: 12px;
   display: flex;
-  line-height: 1;
   align-items: center;
   box-sizing: border-box;
 
   &:not(:last-child) {
     margin-bottom: 12px;
   }
-
   .thumbnail {
     margin-right: 24px;
-    height: 100px;
-    width: 120px;
+    height: 80px;
+    width: 100px;
     overflow: hidden;
     background-color: $light-gray;
 
@@ -24,15 +22,21 @@
     }
   }
 
-  .title {
-    font-size: 18px;
-    font-weight: 700;
-  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-  .info {
-    font-size: 12px;
-    font-weight: 400;
-  }
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+    }
 
-  .link { font-size: 12px; }
+    .info {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .link { font-size: 12px; }
+  }
 }

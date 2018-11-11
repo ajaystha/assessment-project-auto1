@@ -9,12 +9,38 @@ import CarListView from '../../components/CarListView/CarListView';
 
 
 class MainView extends Component {
+  state = {
+    color: undefined,
+    manufacturer: undefined,
+    sort: undefined,
+    page: '1'
+  };
 
   componentDidMount() {
-    this.props.fetchCars();
+    this.props.fetchCars(this.state);
     this.props.fetchColors();
     this.props.fetchManufacturers();
   }
+
+
+  updateFilterHandler = (selectedValue) => {
+    this.setState({
+      color: selectedValue.color || undefined,
+      manufacturer: selectedValue.manufacturer || undefined,
+    },
+      () => {
+        this.props.fetchCars(this.state);
+      });
+  }
+
+    updateSortHandler = (value) => {
+      this.setState({
+        sort: (value === 'none') ? undefined : value
+      },
+        () => {
+          this.props.fetchCars(this.state);
+      });
+    }
 
 
   render() {
@@ -24,19 +50,22 @@ class MainView extends Component {
           <CarFilters
             colors={this.props.colors}
             brands={this.props.manufacturers}
+            filterUpdated={this.updateFilterHandler}
           />
         </div>
-
 
         <div className={classes.CarList}>
           <CarListView
             cars={this.props.cars}
-            totalPageCount={this.props.totalPageCount} />
+            totalPageCount={this.props.totalPageCount}
+            sortUpdated={this.updateSortHandler}
+          />
         </div>
       </div>
     );
   }
 }
+
 
 const mapStateToProps = state => {
   return {
@@ -49,8 +78,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchCars: function() {
-      dispatch(fetchCars());
+    fetchCars: function(filters) {
+      dispatch(fetchCars(filters));
     },
     fetchColors: function() {
       dispatch(fetchColors());

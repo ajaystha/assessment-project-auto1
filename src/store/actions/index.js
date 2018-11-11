@@ -7,13 +7,13 @@ import {
 } from '../actionTypes';
 
 
-export function fetchCars() {
+export function fetchCars(filters) {
   return function (dispatch) {
     dispatch({
       type: FETCH_CARS,
     });
 
-    return axios.get('/cars')
+    return axios.get('/cars', { params: filters})
       .then(response => {
         dispatch({
           type: 'FETCH_CARS_SUCCESS',

@@ -3,10 +3,19 @@ import React from 'react';
 import classes from './CarSort.module.scss';
 
 const sorts = [
-  'None',
-  'Mileage - Ascending',
-  'Mileage - Descending'
-]
+  {
+    label: 'None',
+    type: 'none',
+  },
+  {
+    label: 'Mileage - Ascending',
+    type: 'asc'
+  },
+  {
+    label: 'Mileage - Descending',
+    type: 'des'
+  }
+];
 
 
 const carSort = (props) => (
@@ -14,8 +23,11 @@ const carSort = (props) => (
     <label className="label">Sort by</label>
 
     <div className="select">
-      <select>
-        { sorts.map((item, index) => <option key={index}>{item}</option>) }
+      <select
+        onChange={(ev) => props.changed(ev.target.value)}>
+
+        { sorts.map((item, index) => <option key={index} value={item.type}>{item.label}</option>) }
+
       </select>
     </div>
 

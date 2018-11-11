@@ -4,22 +4,35 @@ import CarFilter from './CarFilter/CarFilter';
 import classes from './CarFilters.module.scss';
 
 
-const carFilters = (props) => (
-
-  <div className={classes.CarFilters}>
-
-    <CarFilter
-      label="Color"
-      options={props.colors}
-    />
-
-    <CarFilter
-      label="Manufacturer"
-      options={props.brands}
-    />
+const selectedFilters = { };
 
 
-    <button type="button" className="button">Filter</button>
-  </div>
-);
+const carFilters = (props) => {
+
+  const updateSelectedFilters = (type, value) => {
+    selectedFilters[type] = (value === 'All manufacturers' || value === 'All car colors') ? undefined : value;
+  }
+
+  return (
+    <div className={classes.CarFilters}>
+
+      <CarFilter
+        label="Color"
+        options={props.colors}
+        changed={(value) => updateSelectedFilters('color', value)}
+      />
+
+      <CarFilter
+        label="Manufacturer"
+        options={props.brands}
+        changed={(value) => updateSelectedFilters('manufacturer', value)}
+      />
+
+      <button type="button"
+        className="button"
+        onClick={() => props.filterUpdated(selectedFilters)}
+      >Filter</button>
+    </div>
+  )
+};
 export default carFilters;

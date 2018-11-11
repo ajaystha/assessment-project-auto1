@@ -1,13 +1,11 @@
 import React from 'react';
 
-import logo from '../../../assets/images/unnamed.jpg'
-
 
 const carList = (props) => (
   <div className="panel">
 
     <div className="thumbnail">
-      <img src={logo} alt="" />
+      <img src={props.car.pictureUrl} alt={props.car.modelName} />
     </div>
 
     <div>

@@ -8,7 +8,8 @@ const carFilter = (props) => (
     <label className="label">{props.label}</label>
 
     <div className="select">
-      <select>
+      <select
+        onChange={(ev) => props.changed(ev.target.value)}>
 
         <option defaultValue>
           { props.label === 'Color' ? 'All car colors' : 'All manufacturers' }

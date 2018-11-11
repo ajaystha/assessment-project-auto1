@@ -11,10 +11,12 @@ const carListView = (props) => (
   <>
     <div className={classes.Header}>
       <div>
-        <div className="title">Available cars</div>
+        <div className={classes.Title}>Available cars</div>
         <p>Showing</p>
       </div>
-      <CarSort />
+
+      <CarSort
+        changed={(value) => props.sortUpdated(value)} />
     </div>
 
     <CarList cars={props.cars} />

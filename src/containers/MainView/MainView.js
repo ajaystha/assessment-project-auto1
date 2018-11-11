@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchCars, fetchColors, fetchManufacturers } from '../../store/actions/';
 
 import classes from './MainView.module.scss';
-import CarFilters from '../../components/Controls/CarFilters/CarFilters';
+import CarFilters from '../../components/CarListView/Controls/CarFilters/CarFilters';
 import CarListView from '../../components/CarListView/CarListView';
 
 

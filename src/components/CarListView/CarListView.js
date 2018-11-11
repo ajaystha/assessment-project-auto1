@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CarSort from '../Controls/CarSort/CarSort';
-import CarList from '../CarList/CarList';
-import Pagination from '../Pagination/Pagination';
+import CarSort from './Controls/CarSort/CarSort';
+import CarList from './CarList/CarList';
+import Pagination from './Pagination/Pagination';
 
 import classes from './CarListView.module.scss';
 

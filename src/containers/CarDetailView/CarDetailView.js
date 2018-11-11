@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import classes from './CarDetailView.module.scss';
-import CarDetails from './CarDetails/CarDetails';
-import FavoriteCar from './FavoriteCar/FavoriteCar';
-import PageNotFound from '../PageNotFound/PageNotFound';
+import CarDetails from '../../components/CarDetails/CarDetails';
+import FavoriteCar from '../../components/FavoriteCar/FavoriteCar';
+import PageNotFound from '../../components/PageNotFound/PageNotFound';
 
 
 class CarDetailView extends Component {

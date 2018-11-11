@@ -13,7 +13,7 @@ class MainView extends Component {
     color: undefined,
     manufacturer: undefined,
     sort: undefined,
-    page: '1'
+    page: 1
   };
 
   componentDidMount() {
@@ -23,24 +23,53 @@ class MainView extends Component {
   }
 
 
+  // update filters value
   updateFilterHandler = (selectedValue) => {
     this.setState({
       color: selectedValue.color || undefined,
       manufacturer: selectedValue.manufacturer || undefined,
-    },
-      () => {
-        this.props.fetchCars(this.state);
-      });
+      page: 1,
+    }, () => {
+      this.props.fetchCars(this.state);
+    });
   }
 
-    updateSortHandler = (value) => {
-      this.setState({
-        sort: (value === 'none') ? undefined : value
-      },
-        () => {
-          this.props.fetchCars(this.state);
-      });
+  // update sort value
+  updateSortHandler = (value) => {
+    this.setState({
+      sort: (value === 'none') ? undefined : value
+    }, () => {
+      this.props.fetchCars(this.state);
+    });
+  }
+
+  // update page
+  updatePageHandler = (value) => {
+    let currentPage = this.state.page;
+
+    if (value === 'first') { currentPage = 1; }
+    else if (value === 'previous') {  currentPage -= 1; }
+    else if (value === 'next') { currentPage += 1; }
+    else if (value === 'last') { currentPage = this.props.totalPageCount; }
+
+    this.setState({
+      page: currentPage
+    }, () => {
+      this.props.fetchCars(this.state);
+      this.scrollUp();
+    });
+  }
+
+  // page scroll to top function
+  scrollUp = () => {
+    const doc = document.documentElement;
+    const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+
+    if (top > 0) {
+      window.scrollTo(0, top - 50);
+      setTimeout(this.scrollUp, 10);
     }
+  }
 
 
   render() {
@@ -57,8 +86,10 @@ class MainView extends Component {
         <div className={classes.CarList}>
           <CarListView
             cars={this.props.cars}
+            currentPage={this.state.page}
             totalPageCount={this.props.totalPageCount}
             sortUpdated={this.updateSortHandler}
+            pageUpdated={this.updatePageHandler}
           />
         </div>
       </div>
@@ -69,10 +100,10 @@ class MainView extends Component {
 
 const mapStateToProps = state => {
   return {
-    totalPageCount: state.totalPageCount,
     cars: state.cars,
     colors: state.colors,
     manufacturers: state.manufacturers,
+    totalPageCount: state.totalPageCount,
   };
 };
 

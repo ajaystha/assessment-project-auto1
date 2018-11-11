@@ -12,7 +12,7 @@ const carListView = (props) => (
     <div className={classes.Header}>
       <div>
         <div className={classes.Title}>Available cars</div>
-        <p>Showing</p>
+        <p>Showing {props.currentPage * 10} of {props.totalPageCount * 10} results</p>
       </div>
 
       <CarSort
@@ -21,7 +21,10 @@ const carListView = (props) => (
 
     <CarList cars={props.cars} />
 
-    <Pagination totalPageCount={props.totalPageCount} />
+    <Pagination
+      currentPage={props.currentPage}
+      totalPageCount={props.totalPageCount}
+      clicked={(value) => props.pageUpdated(value)}/>
   </>
 );
 export default carListView;

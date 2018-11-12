@@ -91,11 +91,12 @@ class MainView extends Component {
     return (
       <div className={classes.MainView}>
         <div className={classes.Filters}>
-          <CarFilters
-            colors={this.props.colors}
-            brands={this.props.manufacturers}
-            filterUpdated={this.updateFilterHandler}
-          />
+
+        <CarFilters
+          colors={this.props.colors}
+          brands={this.props.manufacturers}
+          filterUpdated={this.updateFilterHandler}
+         />
         </div>
 
         <div className={classes.CarList}>
@@ -105,6 +106,7 @@ class MainView extends Component {
             sortUpdated={this.updateSortHandler}
             pageUpdated={this.updatePageHandler}
           />
+
         </div>
       </div>
     );

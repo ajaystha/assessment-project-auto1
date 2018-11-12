@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
-import { fetchCars, fetchColors, fetchManufacturers } from '../../store/actions/';
+
+import { fetchCars } from '../../store/actions/car';
+import { fetchColors } from '../../store/actions/color';
+import { fetchManufacturers } from '../../store/actions/manufacturer';
 
 import classes from './MainView.module.scss';
 import CarFilters from '../../components/CarListView/Controls/CarFilters/CarFilters';
@@ -10,14 +12,16 @@ import CarListView from '../../components/CarListView/CarListView';
 
 class MainView extends Component {
   state = {
-    color: undefined,
-    manufacturer: undefined,
-    sort: undefined,
-    page: 1
+    filters: {
+      color: undefined,
+      manufacturer: undefined,
+      sort: undefined,
+      page: 1
+    }
   };
 
   componentDidMount() {
-    this.props.fetchCars(this.state);
+    this.props.fetchCars(this.state.filters);
     this.props.fetchColors();
     this.props.fetchManufacturers();
   }
@@ -26,37 +30,48 @@ class MainView extends Component {
   // update filters value
   updateFilterHandler = (selectedValue) => {
     this.setState({
-      color: selectedValue.color || undefined,
-      manufacturer: selectedValue.manufacturer || undefined,
-      page: 1,
+      filters: {
+        ...this.state.filters,
+        color: selectedValue.color || undefined,
+        manufacturer: selectedValue.manufacturer || undefined,
+        page: 1,
+      }
     }, () => {
-      this.props.fetchCars(this.state);
+      this.props.fetchCars(this.state.filters);
     });
   }
 
   // update sort value
   updateSortHandler = (value) => {
     this.setState({
-      sort: (value === 'none') ? undefined : value
+      filters: {
+        ...this.state.filters,
+        sort: (value === 'none') ? undefined : value,
+      }
     }, () => {
-      this.props.fetchCars(this.state);
+      this.props.fetchCars(this.state.filters);
     });
   }
 
   // update page
   updatePageHandler = (value) => {
-    let currentPage = this.state.page;
+    let currentPage = this.state.filters.page;
 
     if (value === 'first') { currentPage = 1; }
-    else if (value === 'previous') {  currentPage -= 1; }
+    else if (value === 'previous') { currentPage -= 1; }
     else if (value === 'next') { currentPage += 1; }
-    else if (value === 'last') { currentPage = this.props.totalPageCount; }
+    else if (value === 'last') { currentPage = this.props.cars.totalPageCount; }
 
     this.setState({
-      page: currentPage
+      filters: {
+        ...this.state.filters,
+        page: currentPage
+      }
     }, () => {
-      this.props.fetchCars(this.state);
-      this.scrollUp();
+      this.props.fetchCars(this.state.filters);
+      if (!this.props.cars.isFetching) {
+        this.scrollUp();
+      }
     });
   }
 
@@ -86,8 +101,7 @@ class MainView extends Component {
         <div className={classes.CarList}>
           <CarListView
             cars={this.props.cars}
-            currentPage={this.state.page}
-            totalPageCount={this.props.totalPageCount}
+            currentPage={this.state.filters.page}
             sortUpdated={this.updateSortHandler}
             pageUpdated={this.updatePageHandler}
           />
@@ -101,21 +115,19 @@ const mapStateToProps = state => ({
   cars: state.cars,
   colors: state.colors,
   manufacturers: state.manufacturers,
-  totalPageCount: state.totalPageCount,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchCars: function(filters) {
-    dispatch(fetchCars(filters));
-  },
-  fetchColors: function() {
-    dispatch(fetchColors());
-  },
-  fetchManufacturers: function() {
+const mapDispatchToProps = (dispatch) => ({
+  fetchManufacturers: () => {
     dispatch(fetchManufacturers());
   },
-});
+  fetchCars: (filters) => {
+    dispatch(fetchCars(filters));
+  },
+  fetchColors: () => {
+    dispatch(fetchColors());
+  }
+})
 
 const connectedMainView = connect(mapStateToProps, mapDispatchToProps)(MainView)
-
 export default connectedMainView;

@@ -9,10 +9,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import thunk from 'redux-thunk';
-import reducer from './store/reducer';
+import reducers from './store/reducers';
 
 const store = createStore(
-  reducer,
+  reducers,
   applyMiddleware(thunk)
 );
 

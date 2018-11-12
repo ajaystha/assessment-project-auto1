@@ -4,7 +4,7 @@ import CarFilter from './CarFilter/CarFilter';
 import classes from './CarFilters.module.scss';
 
 
-const selectedFilters = { };
+const selectedFilters = {};
 
 
 const carFilters = (props) => {
@@ -18,13 +18,13 @@ const carFilters = (props) => {
 
       <CarFilter
         label="Color"
-        options={props.colors}
+        options={props.colors.colors}
         changed={(value) => updateSelectedFilters('color', value)}
       />
 
       <CarFilter
         label="Manufacturer"
-        options={props.brands}
+        options={props.brands.manufacturers}
         changed={(value) => updateSelectedFilters('manufacturer', value)}
       />
 

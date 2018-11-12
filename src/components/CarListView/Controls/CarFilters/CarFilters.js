@@ -1,13 +1,12 @@
 import React from 'react';
 
-import CarFilter from './CarFilter/CarFilter';
 import classes from './CarFilters.module.scss';
 
-
-const selectedFilters = {};
+import SelectBox from '../../../SelectBox/SelectBox';
 
 
 const carFilters = (props) => {
+  const selectedFilters = {};
 
   const updateSelectedFilters = (type, value) => {
     selectedFilters[type] = (value === 'All manufacturers' || value === 'All car colors') ? undefined : value;
@@ -16,17 +15,30 @@ const carFilters = (props) => {
   return (
     <div className={classes.CarFilters}>
 
-      <CarFilter
-        label="Color"
-        options={props.colors.colors}
-        changed={(value) => updateSelectedFilters('color', value)}
-      />
+      {(props.colors.isFetching)
+        ? <div></div>
+        : <>
+            <label className="label">Color</label>
+            <SelectBox
+              defaultItem="All car colors"
+              items={props.colors.colors}
+              selected={(value) => updateSelectedFilters('color', value)}
+            />
+          </>
+      }
 
-      <CarFilter
-        label="Manufacturer"
-        options={props.brands.manufacturers}
-        changed={(value) => updateSelectedFilters('manufacturer', value)}
-      />
+      { (props.brands.isFetching)
+        ? <div></div>
+        : <>
+            <label className="label">Manufacturer</label>
+            <SelectBox
+              defaultItem="All manufacturers"
+              items={props.brands.manufacturers}
+              selected={(value) => updateSelectedFilters('manufacturer', value)}
+            />
+          </>
+      }
+
 
       <button type="button"
         className="button"

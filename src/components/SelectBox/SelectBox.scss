@@ -1,0 +1,91 @@
+@import '../../assets/scss/variables';
+
+.select-box {
+  width: 100%;
+  position: relative;
+  left: 0;
+  margin-bottom: 8px;
+
+  &--container {
+    height: 35px;
+    border: 1px solid $light-gray;
+    border-radius: 3px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  &--arrow {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    cursor: pointer;
+
+    &-down {
+      position: absolute;
+      top: 15px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 6px 0 6px;
+      border-color: $light-gray transparent transparent transparent;
+    }
+
+    &-up {
+      position: absolute;
+      top: 14px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 6px 8px 6px;
+      border-color: transparent transparent $light-gray transparent ;
+    }
+  }
+
+  &--selected-item {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    padding: 8px 12px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+
+  &--items {
+    background-color: white;
+
+    div {
+      border-bottom: 1px solid $light-gray;
+      border-left: 1px solid $light-gray;
+      border-right: 1px solid $light-gray;
+      padding: 8px;
+      padding-left: 20px;
+      color: $dark-gray;
+      background-color: white;
+
+      &:first-child {
+        border-top: 1px solid $light-gray;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+
+      &:hover {
+        background-color: $orange;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+}

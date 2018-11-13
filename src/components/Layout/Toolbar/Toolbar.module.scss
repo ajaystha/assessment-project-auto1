@@ -1,0 +1,18 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.Header {
+  @include toolbars;
+  justify-content: space-between;
+  border-bottom: 1px solid $light-gray;
+
+  .logo {
+    height: 100%;
+
+    img { height: 100%; }
+  }
+
+  nav {
+    height: 100%;
+  }
+}

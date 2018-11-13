@@ -1,0 +1,25 @@
+@import '../../assets/scss/variables';
+
+
+.MainView {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+
+  .CarList {
+    // width: 800px;
+    flex: 1;
+  }
+}
+
+.Filters {
+  width: 500px;
+  max-width: 500px;
+  padding: 24px;
+  border: 1px solid $light-gray;
+  margin-right: 24px;
+  box-sizing: border-box;
+}

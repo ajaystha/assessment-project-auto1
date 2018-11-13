@@ -1,0 +1,9 @@
+@mixin toolbars() {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  padding: 18px 24px;
+  background-color: white;
+  box-sizing: border-box;
+}

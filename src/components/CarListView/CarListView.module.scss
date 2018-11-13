@@ -1,0 +1,16 @@
+.Header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  align-items: flex-start;
+
+  .Title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}

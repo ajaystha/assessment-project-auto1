@@ -10,7 +10,6 @@ import * as serviceWorker from './serviceWorker';
 
 import thunk from 'redux-thunk';
 import reducers from './store/reducers/';
-console.log(reducers);
 
 
 const store = createStore(

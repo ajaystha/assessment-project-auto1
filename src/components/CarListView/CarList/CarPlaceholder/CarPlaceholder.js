@@ -5,7 +5,7 @@ import classes from './CarPlaceholder.module.scss';
 
 const carPlaceholder = (props) => (
   <div className="panel">
-    <div className="thumbnail"></div>
+    <div className="panel--thumbnail"></div>
 
     <div className={classes.Blocks}>
       <div className={classes.FirstBlock}></div>

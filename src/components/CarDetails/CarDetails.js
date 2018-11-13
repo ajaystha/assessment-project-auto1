@@ -13,7 +13,7 @@ const carDetails = (props) =>  (
       <p className={classes.SubTitle}>
         Stock # {props.car.stockNumber} -&nbsp;
         {props.car.mileage ? props.car.mileage.number : ''}&nbsp;
-        <span className="upperCase">{props.car.mileage.unit}</span> -&nbsp;
+        <span className="uppercase">{props.car.mileage.unit}</span> -&nbsp;
         <span className="capitalize">{props.car.fuelType}</span> -&nbsp;
         <span className="capitalize">{props.car.color}</span>
       </p>

@@ -11,6 +11,27 @@ class SelectBox extends Component {
   };
 
 
+  componentDidMount() {
+    document.addEventListener('click', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick, false);
+  }
+
+  handleClick = (ev) => {
+    if (this.node.contains(ev.target)) {
+      return;
+    }
+
+    this.handleClickOutside();
+  }
+
+  handleClickOutside = () => {
+    this.setState({ showItems: false });
+  }
+
+
   dropDown = () => {
     this.setState(prevState => ({
       showItems: !prevState.showItems,
@@ -23,7 +44,6 @@ class SelectBox extends Component {
       showItems: false,
     });
     this.props.selected(item)
-
   }
 
 
@@ -31,7 +51,7 @@ class SelectBox extends Component {
   render() {
 
     return (
-      <div className="select-box">
+      <div className="select-box" ref={node => this.node = node}>
         <div className="select-box--container">
           <div className="select-box--selected-item capitalize"
             onClick={this.dropDown}

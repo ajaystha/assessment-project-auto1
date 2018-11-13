@@ -8,7 +8,7 @@
   &:not(:last-child) {
     margin-bottom: 12px;
   }
-  .thumbnail {
+  &--thumbnail {
     margin-right: 24px;
     height: 80px;
     width: 100px;
@@ -22,17 +22,17 @@
     }
   }
 
-  .details {
+  &--details {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    .title {
+    &--title {
       font-size: 18px;
       font-weight: 700;
     }
 
-    .info {
+    &--info {
       font-size: 12px;
       font-weight: 400;
     }

@@ -6,6 +6,10 @@
   left: 0;
   margin-bottom: 8px;
 
+  &:first-of-type {
+    z-index: 1;
+  }
+
   &--container {
     height: 35px;
     border: 1px solid $light-gray;

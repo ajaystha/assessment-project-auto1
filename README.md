@@ -1,5 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Additional dependencies
+  - `react-router-dom` for routing
+  - `axios` for making http calls
+  - `redux` and `react-redux` for state management
+  - `redux-thunk` for making asynchronous calls from actions
+  - `node-sass` for compiling scss files
+
+# Note
+This has `yarn.lock` file because it was created using `yarn`, but can also be used with `npm`.
+
+## Usage
+  - Clone the project with git: `git clone https://github.com/ajaystha/react-project.git`
+  - Inside the project directory run `npm install` or `yarn install` to install dependencies
+
 ## Available Scripts
 
 In the project directory, you can run:
